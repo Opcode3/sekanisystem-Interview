@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "0869adcb-60f0-43ab-8d80-d5e61a1f05b8",
+		"name": "Sekani Interview Question",
+		"description": "In this API, I assumed that customers are stored with an account number.\nI also assumed that the account must retain a least of 500 naira.\n\nI wanted implementing the front end. but know time. Please disregard the public folder.\nThanks.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read All transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/interview/sekanisystem/endpoints/read.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"interview",
+						"sekanisystem",
+						"endpoints",
+						"read.php"
+					]
+				},
+				"description": "curl --location --request GET 'http://localhost/interview/sekanisystem/endpoints/read.php'\nThis endpoints returns all the transaction in the database.\n\nTo sort the output, set sort=1. By default it sort to ascending order\n'http://localhost/interview/sekanisystem/endpoints/read.php?sort=1'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID specified Transaction",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/interview/sekanisystem/endpoints/read.php?transaction_id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"interview",
+						"sekanisystem",
+						"endpoints",
+						"read.php"
+					],
+					"query": [
+						{
+							"key": "transaction_id",
+							"value": "3"
+						}
+					]
+				},
+				"description": "curl --location --request GET 'http://localhost/interview/sekanisystem/endpoints/read.php?transaction_id=3'\nThis endpoints returns the transaction with the specified ID in the database.\n\nTo sort the output, set sort=1. By default it sort to ascending order\n'http://localhost/interview/sekanisystem/endpoints/read.php?transaction_id=3&sort=1'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get transactions By Account Number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/interview/sekanisystem/endpoints/read.php?account_no=9012899423",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"interview",
+						"sekanisystem",
+						"endpoints",
+						"read.php"
+					],
+					"query": [
+						{
+							"key": "account_no",
+							"value": "9012899423"
+						}
+					]
+				},
+				"description": "curl --location --request GET 'http://localhost/interview/sekanisystem/endpoints/read.php?account_no=9012899423'\nThis endpoints returns all the transaction done by the specified account number\n\nTo sort the output, set sort=1. By default it sort to ascending order\n'http://localhost/interview/sekanisystem/endpoints/read.php?account_no=9012899423&sort=1'"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cummulative Account No",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/interview/sekanisystem/endpoints/read.php?cummulative_account_no=9012899423",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"interview",
+						"sekanisystem",
+						"endpoints",
+						"read.php"
+					],
+					"query": [
+						{
+							"key": "cummulative_account_no",
+							"value": "9012899423"
+						}
+					]
+				},
+				"description": "curl --location --request GET 'http://localhost/interview/sekanisystem/endpoints/read.php?cummulative_account_no=9012899423'\nThis endpoints returns the transaction with the specified ID in the database.\n\nTo sort the output, set sort=1. By default it sort to ascending order\n'http://localhost/interview/sekanisystem/endpoints/read.php?cummulative_account_no=9012899423&sort=1'"
+			},
+			"response": []
+		},
+		{
+			"name": "Add New transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "1000",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "Credit",
+							"type": "text"
+						},
+						{
+							"key": "account_no",
+							"value": "9012899423",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/interview/sekanisystem/endpoints/write.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"interview",
+						"sekanisystem",
+						"endpoints",
+						"write.php"
+					]
+				},
+				"description": "curl --location --request POST 'http://localhost/interview/sekanisystem/endpoints/write.php' \\\n--form 'amount=\"1000\"' \\\n--form 'type=\"Credit\"' \\\n--form 'account_no=\"9012899423\"'\n\nThis endpoints add new transaction with the specified data in the database.\nit also check if a customer has enough cash to  debit in. \nI assumed that the min. amount that needs to be in every customers account is 500."
+			},
+			"response": []
+		}
+	]
+}
