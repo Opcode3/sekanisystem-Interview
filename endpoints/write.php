@@ -14,7 +14,6 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once "classes-autoload.inc.php";
-
     
     $transaction = new transactionContr();
     $validate = new Validation();
